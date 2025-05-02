@@ -5,6 +5,13 @@ function showLoader(msg) {
 }
 function hideLoader() { document.getElementById("loader").style.display = "none"; }
 
+// ========== إصلاح ظهور كل المودالات ==========
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.modal').forEach(modal => {
+    modal.style.display = "none";
+  });
+});
+
 // ===== Toast Notification =====
 const successSound = new Audio("data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQgAAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgI");
 const errorSound = new Audio("data:audio/wav;base64,UklGRjQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAAAAgAAAAAAAgAAAAAAAgAAAAAAAgAAAAAAAgAAAAAAAgAAAAAAAgAA");
