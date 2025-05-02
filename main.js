@@ -1,4 +1,4 @@
-// ===== شاشة الانتظار =====
+// ===== شاشة الانتظار ====
 function showLoader(msg) {
   document.getElementById("loader").style.display = "flex";
   document.querySelector("#loader .loader-text").textContent = msg || "الرجاء الانتظار قليلاً...";
