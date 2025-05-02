@@ -436,7 +436,7 @@ window.sellCards = async function(cat) {
     showToast("عدد الكروت غير كافٍ في هذه الفئة.", "error");
     return;
   }
-  let price = prices[cat] * count;
+  let price = prices[cat] * 0.8 * count; // يتم حساب السعر بناءً على 80% من قيمة الفئة
   if (!isOwner && (userData.balance ?? 0) < price) {
     showToast("رصيدك غير كافٍ لإتمام هذه العملية.", "error");
     return;
@@ -460,7 +460,7 @@ window.sellCards = async function(cat) {
       });
     }
     if (!isOwner) {
-      userData.balance = (userData.balance ?? 0) - price;
+      userData.balance = (userData.balance ?? 0) - price; // خصم السعر من الرصيد بناءً على 80%
       await updateDoc(doc(db, "users", userData._docid), { balance: userData.balance });
       document.getElementById("user-balance").textContent = `رصيدك الحالي: ${userData.balance} ريال`;
       updateProfitIcon();
@@ -478,7 +478,6 @@ window.sellCards = async function(cat) {
     showToast("حدث خطأ أثناء البيع", "error");
   }
 };
-
 // ========== إدخال الكروت ==========
 document.getElementById("add-cards-btn").onclick = async () => {
   if (!isOwner && !userData.permissions?.addCards) {
