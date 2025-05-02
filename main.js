@@ -1,11 +1,11 @@
-// ===== شاشة الانتظار ====
+// ===== شاشة الانتظار =====
 function showLoader(msg) {
   document.getElementById("loader").style.display = "flex";
   document.querySelector("#loader .loader-text").textContent = msg || "الرجاء الانتظار قليلاً...";
 }
 function hideLoader() { document.getElementById("loader").style.display = "none"; }
 
-// ========== إصلاح ظهور كل المودالات ==========
+// ===== إصلاح ظهور كل المودالات =====
 window.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.modal').forEach(modal => {
     modal.style.display = "none";
